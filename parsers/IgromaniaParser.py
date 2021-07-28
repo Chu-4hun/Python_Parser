@@ -7,6 +7,7 @@ class IgromaniaParser:
 
     lastTitle = ''
 
+
     def parce(self):
         url = "https://www.igromania.ru/news/game/"
         headers = {
@@ -22,10 +23,9 @@ class IgromaniaParser:
             if title == self.lastTitle:
                 break
             image = item.find('img').get('src')
-            aricle_src = ("https://www.igromania.ru/news/game" + f"{item.find('a').get('href')}")
+            aricle_src = (url + f"{item.find('a').get('href')}")
 
             articles.append(Article(title, image, aricle_src))
 
-        self.lastTitle = articles[0]
 
         return articles

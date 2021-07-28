@@ -1,11 +1,17 @@
 from bs4 import BeautifulSoup
 import requests
 from data.Article import Article
+from utils import MongodbService
 
 
 class StopGameParser:
 
     lastTitle = ''
+
+    def __init__(self):
+        storage = MongodbService
+        lastTitle = storage.getLastArticleParser
+
 
     def parce(self):
         url = 'https://stopgame.ru/news'
@@ -23,7 +29,6 @@ class StopGameParser:
                 break
             image = item.find('img').get('src')
             aricle_src = ("https://stopgame.ru" + f"{item.find('a').get('href')}")
-            self.lastTitle = title
 
             articles.append(Article(title, image, aricle_src))
 

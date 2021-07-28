@@ -1,0 +1,16 @@
+version: "3.7"
+volumes:
+  mongodb_volume:
+      name: mongo
+services:
+  parser:
+    build: ./
+    container_name: parser_container
+    depends_on:
+      - database
+  database:
+    image: mongo:latest
+    container_name: mongo_container
+    volumes:
+      - mongodb_volume:/data/db
+    restart: always

@@ -10,3 +10,8 @@ class Article:
 
     def get_info (self):
         return "{} | {} | {}".format(self.title, self.image, self.aricle_src)
+
+    def toArray(self):
+        return {"title": self.title,
+                "aricle_src": self.aricle_src,
+                "img_src": self.image}
