@@ -8,3 +8,6 @@
 /httpRequests/
 .idea
 /.idea/
+#Exclude python cash
+/parsers/__pycache__
+/data/__pycache__

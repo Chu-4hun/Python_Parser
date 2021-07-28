@@ -8,5 +8,6 @@ igromaniaLast = IgromaniaParser.lastTitle
 
 igromaniaoutput = igromaniaParser.parce()
 stopGameaoutput = stopGameParser.parce()
+
 for out in igromaniaoutput:
     print(out.get_info())

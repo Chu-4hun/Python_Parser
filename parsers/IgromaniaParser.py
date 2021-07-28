@@ -21,8 +21,8 @@ class IgromaniaParser:
             title = item.find('a', class_='aubli_name').get_text(strip=True)
             if title == self.lastTitle:
                 break
-            image = item.find('a', class_='aubli_img').find('img').get('src')
-            aricle_src = ("https://www.igromania.ru/news/game" + f"{item.find('a', class_='aubli_img').get('href')}")
+            image = item.find('img').get('src')
+            aricle_src = ("https://www.igromania.ru/news/game" + f"{item.find('a').get('href')}")
 
             articles.append(Article(title, image, aricle_src))
 

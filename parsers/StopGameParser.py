@@ -21,8 +21,8 @@ class StopGameParser:
             title = item.find('div', class_='caption caption-bold').get_text(strip=True)
             if title == self.lastTitle:
                 break
-            image = item.find('a', class_='article-image image').find('img').get('src')
-            aricle_src = ("https://stopgame.ru" + f"{item.find('a', class_='article-image image').get('href')}")
+            image = item.find('img').get('src')
+            aricle_src = ("https://stopgame.ru" + f"{item.find('a').get('href')}")
             self.lastTitle = title
 
             articles.append(Article(title, image, aricle_src))
